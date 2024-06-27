@@ -1,17 +1,14 @@
 body {
     font-family: Arial, sans-serif;
-    background-image: url('YOUR_DISCORD_IMAGE_URL');
-    background-size: cover; /* Adjusts the size of the background image */
-    background-position: center; /* Centers the background image */
-    background-repeat: no-repeat; /* Prevents the background image from repeating */
+    background-color: black; /* Sets the background color to black */
     color: white; /* Sets the text color to white for better readability */
     padding: 20px; /* Adds padding to the body content */
 }
 
 h1 {
-    color: blue;
+    color: blue; /* You can adjust this color if needed */
 }
 
 p {
-    font-size: 18px;
+    font-size: 18px; /* You can adjust the font size if needed */
 }
