@@ -1,14 +1,9 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: black; /* Sets the background color to black */
-    color: white; /* Sets the text color to white for better readability */
-    padding: 20px; /* Adds padding to the body content */
 }
-
 h1 {
-    color: blue; /* Sets the heading color to blue */
+    color: blue;
 }
-
 p {
-    font-size: 18px; /* Sets the paragraph font size */
+    font-size: 18px;
 }
