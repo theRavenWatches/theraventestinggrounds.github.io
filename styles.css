@@ -6,9 +6,9 @@ body {
 }
 
 h1 {
-    color: blue; /* You can adjust this color if needed */
+    color: blue; /* Sets the heading color to blue */
 }
 
 p {
-    font-size: 18px; /* You can adjust the font size if needed */
+    font-size: 18px; /* Sets the paragraph font size */
 }
