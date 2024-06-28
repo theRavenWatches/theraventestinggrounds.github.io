@@ -91,7 +91,8 @@
             }
 
             function updateResponse(command, response) {
-                element.innerHTML += `<br>${response}`;
+                element.innerHTML = element.innerHTML.replace(/<input type="text" class="typable-box".*?>/, '');
+                element.innerHTML += `<br>~ ${command}<br>${response}`;
                 inputBox.value = ''; // Clear the input box for new command
                 inputBox.focus(); // Bring focus back to the input box
             }
