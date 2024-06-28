@@ -3,47 +3,6 @@
 <head>
     <title>Logs - The Raven</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <style>
-        /* Optional CSS styles for better presentation */
-        .typing-text {
-            font-family: Arial, sans-serif;
-            font-size: 24px;
-            color: black;
-            text-align: center;
-            margin-top: 50px;
-        }
-    </style>
-    <script>
-        // JavaScript function to simulate typing effect
-        document.addEventListener('DOMContentLoaded', function() {
-            var typingText1 = "Insert text here";
-            var typingText2 = "Insert more text here";
-            var index = 0;
-            var speed = 50; // typing speed in milliseconds
-            var element = document.getElementById('typing-text');
-
-            function typeWriter() {
-                if (index < typingText1.length) {
-                    element.textContent += typingText1.charAt(index);
-                    index++;
-                    setTimeout(typeWriter, speed);
-                } else {
-                    element.innerHTML += '<br>'; // Add line break after first text
-                    typeWriter2(); // Start typing second text
-                }
-            }
-
-            function typeWriter2() {
-                if (index < typingText2.length) {
-                    element.textContent += typingText2.charAt(index);
-                    index++;
-                    setTimeout(typeWriter2, speed);
-                }
-            }
-
-            typeWriter(); // Start typing first text
-        });
-    </script>
 </head>
 <body>
     <div id="typing-text" class="typing-text"></div>
