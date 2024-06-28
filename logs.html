@@ -59,6 +59,7 @@
             var index = 0;
             var speed = 50;
             var element = document.getElementById('typing-text');
+            var inputBox;
 
             function typeWriter() {
                 if (index < typingText.length) {
@@ -67,17 +68,16 @@
                     setTimeout(typeWriter, speed);
                 } else {
                     element.innerHTML += '<br><span>~</span> <input type="text" class="typable-box" placeholder="Add your own text here" id="inputBox">';
-                    var inputBox = document.getElementById('inputBox');
+                    inputBox = document.getElementById('inputBox');
                     inputBox.addEventListener('keydown', handleKeyDown);
                 }
             }
 
             function handleKeyDown(event) {
                 if (event.key === 'Enter') {
-                    var inputBox = event.target;
                     var inputValue = inputBox.value.trim().toLowerCase();
                     var response = getResponse(inputValue);
-                    updateResponse(inputBox, inputValue, response);
+                    updateResponse(inputValue, response);
                 }
             }
 
@@ -90,11 +90,10 @@
                 }
             }
 
-            function updateResponse(inputBox, command, response) {
-                var newContent = `<br>${response}<br><span>~</span> <input type="text" class="typable-box" placeholder="Add your own text here" id="inputBox">`;
-                element.innerHTML = element.innerHTML.replace(inputBox.outerHTML, '') + newContent;
-                var newInputBox = document.getElementById('inputBox');
-                newInputBox.addEventListener('keydown', handleKeyDown);
+            function updateResponse(command, response) {
+                element.innerHTML += `<br>${response}`;
+                inputBox.value = ''; // Clear the input box for new command
+                inputBox.focus(); // Bring focus back to the input box
             }
 
             typeWriter();
