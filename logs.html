@@ -7,24 +7,24 @@
         /* Optional CSS styles for better presentation */
         .typing-text {
             font-family: Arial, sans-serif;
-            font-size: 24px;
+            font-size: 16px;
             color: white;
             margin-top: 50px;
         }
 
         .typable-box {
-            width: 80%;
+            width: calc(100% - 20px); /* Adjust width as needed */
             max-width: 600px;
             margin: 20px auto;
             padding: 10px;
             font-family: Arial, sans-serif;
             font-size: 16px;
-            color: black;
+            color: white;
             border: none; /* Removes border */
             outline: none; /* Removes outline when focused */
             resize: none; /* Prevents resizing */
-            display: block; /* Ensures it's on a new line */
-            margin-top: 10px; /* Adjust margin after the tilde */
+            display: inline-block; /* Makes it inline with other text */
+            vertical-align: middle; /* Aligns vertically */
         }
     </style>
     <script>
@@ -41,7 +41,7 @@
                     index++;
                     setTimeout(typeWriter, speed);
                 } else {
-                    element.innerHTML += '<br><br>~<div class="typable-box" contenteditable="true">Add your own text here</div>'; // Add line breaks and typable box after animated text
+                    element.innerHTML += '<br><span>~</span> <input type="text" class="typable-box" placeholder="Add your own text here">'; // Add line break, tilde, and input box after animated text
                 }
             }
 
