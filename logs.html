@@ -69,6 +69,7 @@
             var index = 0;
             var speed = 50; // typing speed in milliseconds
             var element = document.getElementById('typing-text');
+            var userInput = ''; // Variable to store user input
 
             function typeWriter() {
                 if (index < typingText.length) {
@@ -81,7 +82,7 @@
                     inputBox.setAttribute('class', 'typable-box');
                     inputBox.setAttribute('placeholder', 'Add your own text here');
                     inputBox.setAttribute('id', 'inputBox');
-                    element.innerHTML += '<br><span>~</span>';
+                    element.innerHTML += '<br><span>~ ' + userInput + '</span>';
                     element.appendChild(inputBox);
 
                     // Add event listener to new input box
@@ -116,7 +117,6 @@
 
                     // Remove the input box after processing command
                     element.removeChild(document.getElementById('inputBox'));
-                    element.innerHTML += '<br><span>~ ' + inputValue + '</span>';
                 } else {
                     element.innerHTML += '<br>unknown command<br><span>~</span>';
                     var newInputBox = document.createElement('input');
