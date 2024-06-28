@@ -6,20 +6,33 @@
     <script>
         // JavaScript function to simulate typing effect
         document.addEventListener('DOMContentLoaded', function() {
-            var element = document.getElementById('typing-text');
-            var text = "Welcome back, ???.";
+            var typingText1 = "Welcome back ???";
+            var typingText2 = "Which logs would you like to view?";
             var index = 0;
             var speed = 50; // typing speed in milliseconds
+            var element = document.getElementById('typing-text');
 
             function typeWriter() {
-                if (index < text.length) {
-                    element.textContent += text.charAt(index);
+                if (index < typingText1.length) {
+                    element.textContent += typingText1.charAt(index);
                     index++;
                     setTimeout(typeWriter, speed);
+                } else {
+                    element.innerHTML += '<br>'; // Add line break after first text
+                    index = 0; // Reset index for second text
+                    typeWriter2(); // Start typing second text
                 }
             }
 
-            typeWriter();
+            function typeWriter2() {
+                if (index < typingText2.length) {
+                    element.textContent += typingText2.charAt(index);
+                    index++;
+                    setTimeout(typeWriter2, speed);
+                }
+            }
+
+            typeWriter(); // Start typing first text
         });
     </script>
 </head>
