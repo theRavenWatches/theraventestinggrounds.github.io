@@ -37,7 +37,7 @@ p {
 .styled-button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: purple;
+    background-color: white;
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -45,7 +45,7 @@ p {
 }
 
 .styled-button:hover {
-    background-color: darkpurple; /* Darker shade when hovered */
+    background-color: gray; 
 }
 
 .button-container {
