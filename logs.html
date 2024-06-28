@@ -56,6 +56,11 @@
             margin-left: 10px;
             border-right: .15em solid orange;
         }
+
+        .response {
+            margin-top: 20px; /* Adjust spacing as needed */
+            color: white; /* Text color for response */
+        }
     </style>
     <script>
         // JavaScript function to simulate typing effect
@@ -108,6 +113,10 @@
                             }
                         });
                     }, 3000); // Add typing box after 3 seconds
+
+                    // Remove the input box after processing command
+                    element.removeChild(document.getElementById('inputBox'));
+                    element.innerHTML += '<br><span>~ ' + inputValue + '</span>';
                 } else {
                     element.innerHTML += '<br>unknown command<br><span>~</span>';
                     var newInputBox = document.createElement('input');
