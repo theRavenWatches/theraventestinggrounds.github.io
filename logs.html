@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Logs - The Raven</title>
+    <title>Logs</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <style>
         .typing-text {
@@ -93,8 +93,10 @@
             function updateResponse(command, response) {
                 element.innerHTML = element.innerHTML.replace(/<input type="text" class="typable-box".*?>/, '');
                 element.innerHTML += `<br>~ ${command}<br>${response}`;
-                inputBox.value = ''; // Clear the input box for new command
-                inputBox.focus(); // Bring focus back to the input box
+                element.innerHTML += '<br><span>~</span> <input type="text" class="typable-box" placeholder="Add your own text here" id="inputBox">';
+                inputBox = document.getElementById('inputBox');
+                inputBox.addEventListener('keydown', handleKeyDown);
+                inputBox.focus();
             }
 
             typeWriter();
