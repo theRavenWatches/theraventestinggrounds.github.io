@@ -72,11 +72,14 @@
                     setTimeout(typeWriter, speed);
                 } else {
                     element.innerHTML += '<br><span>~</span> <input type="text" class="typable-box" placeholder="Add your own text here" id="inputBox">'; // Add line break, tilde, and input box after animated text
-                    document.getElementById('inputBox').addEventListener('keydown', function(event) {
-                        if (event.key === 'Enter') {
-                            checkInput(event.target.value.trim().toLowerCase());
-                        }
-                    });
+                    // Wait for DOM to update before adding event listener
+                    setTimeout(function() {
+                        document.getElementById('inputBox').addEventListener('keydown', function(event) {
+                            if (event.key === 'Enter') {
+                                checkInput(event.target.value.trim().toLowerCase());
+                            }
+                        });
+                    }, 0);
                 }
             }
 
@@ -86,19 +89,25 @@
                     element.innerHTML += '<br><div class="response typing">insert response here</div>';
                     setTimeout(function() {
                         element.innerHTML += '<br><span>~</span> <input type="text" class="typable-box" placeholder="Add your own text here" id="inputBox">';
+                        // Wait for DOM to update before adding event listener
+                        setTimeout(function() {
+                            document.getElementById('inputBox').addEventListener('keydown', function(event) {
+                                if (event.key === 'Enter') {
+                                    checkInput(event.target.value.trim().toLowerCase());
+                                }
+                            });
+                        }, 0);
+                    }, 3000); // Add typing box after 3 seconds
+                } else {
+                    element.innerHTML += '<br>unknown command<br><span>~</span> <input type="text" class="typable-box" placeholder="Add your own text here" id="inputBox">';
+                    // Wait for DOM to update before adding event listener
+                    setTimeout(function() {
                         document.getElementById('inputBox').addEventListener('keydown', function(event) {
                             if (event.key === 'Enter') {
                                 checkInput(event.target.value.trim().toLowerCase());
                             }
                         });
-                    }, 3000); // Add typing box after 3 seconds
-                } else {
-                    element.innerHTML += '<br>unknown command<br><span>~</span> <input type="text" class="typable-box" placeholder="Add your own text here" id="inputBox">';
-                    document.getElementById('inputBox').addEventListener('keydown', function(event) {
-                        if (event.key === 'Enter') {
-                            checkInput(event.target.value.trim().toLowerCase());
-                        }
-                    });
+                    }, 0);
                 }
             }
 
