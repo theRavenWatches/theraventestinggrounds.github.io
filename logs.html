@@ -3,7 +3,7 @@
 <head>
     <title>Logs - The Raven</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
-       <style>
+    <style>
         /* Optional CSS styles for better presentation */
         .typing-text {
             font-family: Arial, sans-serif;
@@ -40,6 +40,22 @@
             font-size: 16px;
             resize: none; /* Prevents resizing */
         }
+
+        /* Animation for typing text */
+        @keyframes typing {
+            from { width: 0 }
+        }
+
+        /* Typing effect style */
+        .typing::after {
+            content: ' ';
+            animation: typing 3s steps(30, end);
+            overflow: hidden;
+            display: inline-block;
+            white-space: nowrap;
+            margin-left: 10px;
+            border-right: .15em solid orange;
+        }
     </style>
     <script>
         // JavaScript function to simulate typing effect
@@ -55,7 +71,17 @@
                     index++;
                     setTimeout(typeWriter, speed);
                 } else {
-                    element.innerHTML += '<br><span>~</span> <input type="text" class="typable-box" placeholder="">'; // Add line break, tilde, and input box after animated text
+                    element.innerHTML += '<br><span>~</span> <input type="text" class="typable-box" placeholder="" oninput="checkCommand(this.value)">'; // Add line break, tilde, and input box after animated text
+                }
+            }
+
+            function checkCommand(input) {
+                var command = "insert command here";
+                if (input.toLowerCase() === command) {
+                    element.innerHTML += '<br><div class="response typing">insert response here</div>';
+                    setTimeout(function() {
+                        element.innerHTML += '<br><span>~</span> <input type="text" class="typable-box" placeholder="" oninput="checkCommand(this.value)">';
+                    }, 3000); // Add typing box after 3 seconds
                 }
             }
 
