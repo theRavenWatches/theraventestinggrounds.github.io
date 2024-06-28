@@ -1,10 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Logs</title>
+    <title>Logs - The Raven</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <script>
+        // JavaScript function to simulate typing effect
+        document.addEventListener('DOMContentLoaded', function() {
+            var element = document.getElementById('typing-text');
+            var text = "Welcome back, ???.";
+            var index = 0;
+            var speed = 50; // typing speed in milliseconds
+
+            function typeWriter() {
+                if (index < text.length) {
+                    element.textContent += text.charAt(index);
+                    index++;
+                    setTimeout(typeWriter, speed);
+                }
+            }
+
+            typeWriter();
+        });
+    </script>
 </head>
 <body>
-    <!-- Leave this body section blank -->
+    <div id="typing-text" class="typing-text"></div>
 </body>
 </html>
