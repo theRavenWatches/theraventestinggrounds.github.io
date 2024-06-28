@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Test 1</title>
+    <title>Logs - The Raven</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <style>
         /* Optional CSS styles for better presentation */
@@ -74,12 +74,13 @@
                     setTimeout(typeWriter, speed);
                 } else {
                     element.innerHTML += '<br><span>~</span> <input type="text" class="typable-box" placeholder="Add your own text here" id="inputBox">';
-                    document.getElementById('inputBox').addEventListener('keydown', function(event) {
+                    var inputBox = document.getElementById('inputBox');
+                    inputBox.addEventListener('keydown', function(event) {
                         if (event.key === 'Enter') {
-                            var inputValue = event.target.value.trim().toLowerCase();
+                            var inputValue = inputBox.value.trim().toLowerCase();
                             var response = getResponse(inputValue);
                             updateResponse(inputValue, response);
-                            event.target.value = ""; // Clear input box
+                            inputBox.value = ""; // Clear input box
                         }
                     });
                 }
@@ -100,11 +101,11 @@
                 if (previousCommand !== command) {
                     previousCommand = command;
                     previousResponse = response;
-                    element.innerHTML += '<br>' + response + '<br><span>~</span> <input type="text" class="typable-box" placeholder="Add your own text here" id="inputBox">';
                 } else {
                     previousResponse = response;
-                    element.innerHTML = element.innerHTML.split('<br>')[0] + '<br>' + response + '<br><span>~</span> <input type="text" class="typable-box" placeholder="Add your own text here" id="inputBox">';
                 }
+                var typingBox = '<br><span>~</span> <input type="text" class="typable-box" placeholder="Add your own text here" id="inputBox">';
+                element.innerHTML = element.innerHTML.split(typingBox)[0] + typingBox + previousResponse;
             }
 
             typeWriter(); // Start typing animation
