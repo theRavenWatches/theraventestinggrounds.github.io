@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Test</title>
+    <title>Test 1</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <style>
         /* Optional CSS styles for better presentation */
@@ -56,11 +56,6 @@
             margin-left: 10px;
             border-right: .15em solid orange;
         }
-
-        .response {
-            margin-top: 20px; /* Adjust spacing as needed */
-            color: white; /* Text color for response */
-        }
     </style>
     <script>
         // JavaScript function to simulate typing effect
@@ -69,7 +64,8 @@
             var index = 0;
             var speed = 50; // typing speed in milliseconds
             var element = document.getElementById('typing-text');
-            var userInput = ''; // Variable to store user input
+            var previousCommand = "";
+            var previousResponse = "";
 
             function typeWriter() {
                 if (index < typingText.length) {
@@ -77,61 +73,37 @@
                     index++;
                     setTimeout(typeWriter, speed);
                 } else {
-                    var inputBox = document.createElement('input');
-                    inputBox.setAttribute('type', 'text');
-                    inputBox.setAttribute('class', 'typable-box');
-                    inputBox.setAttribute('placeholder', 'Add your own text here');
-                    inputBox.setAttribute('id', 'inputBox');
-                    element.innerHTML += '<br><span>~ ' + userInput + '</span>';
-                    element.appendChild(inputBox);
-
-                    // Add event listener to new input box
-                    inputBox.addEventListener('keydown', function(event) {
+                    element.innerHTML += '<br><span>~</span> <input type="text" class="typable-box" placeholder="Add your own text here" id="inputBox">';
+                    document.getElementById('inputBox').addEventListener('keydown', function(event) {
                         if (event.key === 'Enter') {
-                            checkInput(event.target.value.trim().toLowerCase());
+                            var inputValue = event.target.value.trim().toLowerCase();
+                            var response = getResponse(inputValue);
+                            updateResponse(inputValue, response);
+                            event.target.value = ""; // Clear input box
                         }
                     });
                 }
             }
 
-            function checkInput(inputValue) {
-                var command = "insert command here";
-                if (inputValue === command) {
-                    element.innerHTML += '<br><div class="response typing">insert response here</div>';
-                    setTimeout(function() {
-                        var newInputBox = document.createElement('input');
-                        newInputBox.setAttribute('type', 'text');
-                        newInputBox.setAttribute('class', 'typable-box');
-                        newInputBox.setAttribute('placeholder', 'Add your own text here');
-                        newInputBox.setAttribute('id', 'inputBox');
-                        element.innerHTML += '<br><span>~</span>';
-                        element.appendChild(newInputBox);
+            function getResponse(inputValue) {
+                // Define your commands and responses here
+                switch (inputValue) {
+                    case "insert command here":
+                        return "insert response here";
+                    default:
+                        return "unknown command";
+                }
+            }
 
-                        // Add event listener to new input box
-                        newInputBox.addEventListener('keydown', function(event) {
-                            if (event.key === 'Enter') {
-                                checkInput(event.target.value.trim().toLowerCase());
-                            }
-                        });
-                    }, 3000); // Add typing box after 3 seconds
-
-                    // Remove the input box after processing command
-                    element.removeChild(document.getElementById('inputBox'));
+            function updateResponse(command, response) {
+                // Clear previous response
+                if (previousCommand !== command) {
+                    previousCommand = command;
+                    previousResponse = response;
+                    element.innerHTML += '<br>' + response + '<br><span>~</span> <input type="text" class="typable-box" placeholder="Add your own text here" id="inputBox">';
                 } else {
-                    element.innerHTML += '<br>unknown command<br><span>~</span>';
-                    var newInputBox = document.createElement('input');
-                    newInputBox.setAttribute('type', 'text');
-                    newInputBox.setAttribute('class', 'typable-box');
-                    newInputBox.setAttribute('placeholder', 'Add your own text here');
-                    newInputBox.setAttribute('id', 'inputBox');
-                    element.appendChild(newInputBox);
-
-                    // Add event listener to new input box
-                    newInputBox.addEventListener('keydown', function(event) {
-                        if (event.key === 'Enter') {
-                            checkInput(event.target.value.trim().toLowerCase());
-                        }
-                    });
+                    previousResponse = response;
+                    element.innerHTML = element.innerHTML.split('<br>')[0] + '<br>' + response + '<br><span>~</span> <input type="text" class="typable-box" placeholder="Add your own text here" id="inputBox">';
                 }
             }
 
