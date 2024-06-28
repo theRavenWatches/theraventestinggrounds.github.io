@@ -12,3 +12,19 @@ h1 {
 p {
     font-size: 18px; /* Sets the paragraph font size */
 }
+.credit {
+    text-align: center; /* Centers the content */
+    margin-bottom: 20px; /* Adds space between credit and main content */
+}
+
+.credit img {
+    width: 100px; /* Adjusts the size of the Discord icon */
+    height: 100px; /* Adjusts the height of the Discord icon */
+    border-radius: 50%; /* Makes the icon round */
+    margin-bottom: 10px; /* Adds space between icon and username */
+}
+
+.credit p {
+    font-size: 18px; /* Sets the font size */
+    margin-top: 0; /* Removes top margin to align with image */
+}
