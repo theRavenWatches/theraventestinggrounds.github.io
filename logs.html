@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Logs - The Raven</title>
+    <title>Logs</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <style>
         /* Optional CSS styles for better presentation */
@@ -75,14 +75,16 @@
                 } else {
                     element.innerHTML += '<br><span>~</span> <input type="text" class="typable-box" placeholder="Add your own text here" id="inputBox">';
                     var inputBox = document.getElementById('inputBox');
-                    inputBox.addEventListener('keydown', function(event) {
-                        if (event.key === 'Enter') {
-                            var inputValue = inputBox.value.trim().toLowerCase();
-                            var response = getResponse(inputValue);
-                            updateResponse(inputValue, response);
-                            inputBox.value = ""; // Clear input box
-                        }
-                    });
+                    inputBox.addEventListener('keydown', handleKeyDown);
+                }
+            }
+
+            function handleKeyDown(event) {
+                if (event.key === 'Enter') {
+                    var inputValue = inputBox.value.trim().toLowerCase();
+                    var response = getResponse(inputValue);
+                    updateResponse(inputValue, response);
+                    inputBox.value = ""; // Clear input box
                 }
             }
 
@@ -104,8 +106,9 @@
                 } else {
                     previousResponse = response;
                 }
-                var typingBox = '<br><span>~</span> <input type="text" class="typable-box" placeholder="Add your own text here" id="inputBox">';
-                element.innerHTML = element.innerHTML.split(typingBox)[0] + typingBox + previousResponse;
+                element.innerHTML += '<br>' + previousResponse + '<br><span>~</span> <input type="text" class="typable-box" placeholder="Add your own text here" id="inputBox">';
+                inputBox = document.getElementById('inputBox');
+                inputBox.addEventListener('keydown', handleKeyDown); // Re-add event listener
             }
 
             typeWriter(); // Start typing animation
