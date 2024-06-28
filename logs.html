@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Logs</title>
+    <title>Logs - The Raven</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <style>
         .typing-text {
@@ -67,10 +67,14 @@
                     index++;
                     setTimeout(typeWriter, speed);
                 } else {
-                    element.innerHTML += '<br><span>~</span> <input type="text" class="typable-box" placeholder="Add your own text here" id="inputBox">';
-                    inputBox = document.getElementById('inputBox');
-                    inputBox.addEventListener('keydown', handleKeyDown);
+                    addInputBox();
                 }
+            }
+
+            function addInputBox() {
+                element.innerHTML += '<br><span>~</span> <input type="text" class="typable-box" placeholder="Add your own text here" id="inputBox">';
+                inputBox = document.getElementById('inputBox');
+                inputBox.addEventListener('keydown', handleKeyDown);
             }
 
             function handleKeyDown(event) {
@@ -91,11 +95,9 @@
             }
 
             function updateResponse(command, response) {
-                element.innerHTML = element.innerHTML.replace(/<input type="text" class="typable-box".*?>/, '');
+                element.innerHTML = element.innerHTML.replace(/<span>~<\/span> <input type="text" class="typable-box".*?>/, '');
                 element.innerHTML += `<br>~ ${command}<br>${response}`;
-                element.innerHTML += '<br><span>~</span> <input type="text" class="typable-box" placeholder="Add your own text here" id="inputBox">';
-                inputBox = document.getElementById('inputBox');
-                inputBox.addEventListener('keydown', handleKeyDown);
+                addInputBox();
                 inputBox.focus();
             }
 
