@@ -34,3 +34,21 @@ p {
     color: purple; /* Sets the text color to bright purple */
     font-size: 24px; /* Sets the font size of the text */
 }
+.styled-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: purple;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.styled-button:hover {
+    background-color: darkpurple; /* Darker shade when hovered */
+}
+
+.button-container {
+    text-align: center; /* Centers the button horizontally */
+    margin-top: 20px; /* Adds space above the button */
+}
