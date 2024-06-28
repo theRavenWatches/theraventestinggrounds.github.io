@@ -3,12 +3,13 @@
 <head>
     <title>Logs - The Raven</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <style>
+       <style>
         /* Optional CSS styles for better presentation */
         .typing-text {
             font-family: Arial, sans-serif;
-            font-size: 16px;
-            color: white;
+            font-size: 24px;
+            color: black;
+            text-align: center;
             margin-top: 50px;
         }
 
@@ -19,12 +20,17 @@
             padding: 10px;
             font-family: Arial, sans-serif;
             font-size: 16px;
-            color: white;
+            color: black;
             border: none; /* Removes border */
             outline: none; /* Removes outline when focused */
             resize: none; /* Prevents resizing */
             display: inline-block; /* Makes it inline with other text */
             vertical-align: middle; /* Aligns vertically */
+        }
+
+        /* Set text color to white in the input box */
+        .typable-box input[type="text"] {
+            color: white;
         }
     </style>
     <script>
