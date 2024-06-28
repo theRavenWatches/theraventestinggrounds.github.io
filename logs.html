@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Logs - The Raven</title>
+    <title>Logs</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <style>
         .typing-text {
@@ -96,7 +96,7 @@
 
             function updateResponse(command, response) {
                 element.innerHTML = element.innerHTML.replace(/<span>~<\/span> <input type="text" class="typable-box".*?>/, '');
-                element.innerHTML += `<br>~ ${command}<br>${response}`;
+                element.innerHTML += `<br>~ ${command}<br><br>${response}`;
                 addInputBox();
                 inputBox.focus();
             }
