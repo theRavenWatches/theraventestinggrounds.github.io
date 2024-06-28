@@ -4,11 +4,17 @@
     <title>Logs - The Raven</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <style>
+        /* Set background color to white */
+        body {
+            background-color: white;
+        }
+
         /* Optional CSS styles for better presentation */
         .typing-text {
             font-family: Arial, sans-serif;
-            font-size: 16px;
-            color: white;
+            font-size: 24px;
+            color: black;
+            text-align: center;
             margin-top: 50px;
         }
 
@@ -19,7 +25,7 @@
             padding: 10px;
             font-family: Arial, sans-serif;
             font-size: 16px;
-            color: white; /* Text color inside the typing box */
+            color: black; /* Text color inside the typing box */
             background-color: black; /* Background color of the typing box */
             border: none; /* Removes border */
             outline: none; /* Removes outline when focused */
@@ -71,20 +77,27 @@
                     index++;
                     setTimeout(typeWriter, speed);
                 } else {
-                    element.innerHTML += '<br><span>~</span> <input type="text" class="typable-box" placeholder="Add your own text here" onkeydown="checkInput(event)">'; // Add line break, tilde, and input box after animated text
+                    element.innerHTML += '<br><span>~</span> <input type="text" class="typable-box" placeholder="Add your own text here" id="inputBox">'; // Add line break, tilde, and input box after animated text
+                    document.getElementById('inputBox').addEventListener('keydown', function(event) {
+                        if (event.key === 'Enter') {
+                            checkInput(event.target.value.trim().toLowerCase());
+                        }
+                    });
                 }
             }
 
-            function checkInput(event) {
-                if (event.key === 'Enter') {
-                    var inputValue = event.target.value.toLowerCase().trim();
-                    var command = "insert command here";
-                    if (inputValue === command) {
-                        element.innerHTML += '<br><div class="response typing">insert response here</div>';
-                        setTimeout(function() {
-                            element.innerHTML += '<br><span>~</span> <input type="text" class="typable-box" placeholder="Add your own text here" onkeydown="checkInput(event)">';
-                        }, 3000); // Add typing box after 3 seconds
-                    }
+            function checkInput(inputValue) {
+                var command = "insert command here";
+                if (inputValue === command) {
+                    element.innerHTML += '<br><div class="response typing">insert response here</div>';
+                    setTimeout(function() {
+                        element.innerHTML += '<br><span>~</span> <input type="text" class="typable-box" placeholder="Add your own text here" id="inputBox">';
+                        document.getElementById('inputBox').addEventListener('keydown', function(event) {
+                            if (event.key === 'Enter') {
+                                checkInput(event.target.value.trim().toLowerCase());
+                            }
+                        });
+                    }, 3000); // Add typing box after 3 seconds
                 }
             }
 
