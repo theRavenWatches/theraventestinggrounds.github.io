@@ -28,7 +28,7 @@ p {
     font-size: 18px; /* Sets the font size */
     margin-top: 0; /* Removes top margin to align with image */
 }
-.credits-text {
+.credit-text {
     text-align: center; /* Centers the text */
     margin-top: 20px; /* Adds space between text and credit section */
     color: purple; /* Sets the text color to bright purple */
