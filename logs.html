@@ -19,7 +19,8 @@
             padding: 10px;
             font-family: Arial, sans-serif;
             font-size: 16px;
-            color: black;
+            color: white; /* Text color inside the typing box */
+            background-color: black; /* Background color of the typing box */
             border: none; /* Removes border */
             outline: none; /* Removes outline when focused */
             resize: none; /* Prevents resizing */
@@ -29,7 +30,15 @@
 
         /* Set text color to white in the input box */
         .typable-box input[type="text"] {
-            color: white;
+            color: white; /* Text color inside the input box */
+            background-color: black; /* Background color of the input box */
+            border: none; /* Removes border */
+            outline: none; /* Removes outline when focused */
+            width: calc(100% - 20px); /* Adjust width as needed */
+            padding: 5px; /* Adjust padding as needed */
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            resize: none; /* Prevents resizing */
         }
     </style>
     <script>
