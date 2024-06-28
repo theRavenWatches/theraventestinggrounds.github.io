@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Logs</title>
+    <title>Logs - The Raven</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <style>
-        /* Optional CSS styles for better presentation */
         .typing-text {
             font-family: Arial, sans-serif;
             font-size: 16px;
@@ -13,40 +12,37 @@
         }
 
         .typable-box {
-            width: calc(100% - 20px); /* Adjust width as needed */
+            width: calc(100% - 20px);
             max-width: 600px;
             margin: 20px auto;
             padding: 10px;
             font-family: Arial, sans-serif;
             font-size: 16px;
-            color: white; /* Text color inside the typing box */
-            background-color: black; /* Background color of the typing box */
-            border: none; /* Removes border */
-            outline: none; /* Removes outline when focused */
-            resize: none; /* Prevents resizing */
-            display: inline-block; /* Makes it inline with other text */
-            vertical-align: middle; /* Aligns vertically */
+            color: white;
+            background-color: black;
+            border: none;
+            outline: none;
+            resize: none;
+            display: inline-block;
+            vertical-align: middle;
         }
 
-        /* Set text color to white in the input box */
         .typable-box input[type="text"] {
-            color: white; /* Text color inside the input box */
-            background-color: black; /* Background color of the input box */
-            border: none; /* Removes border */
-            outline: none; /* Removes outline when focused */
-            width: calc(100% - 20px); /* Adjust width as needed */
-            padding: 5px; /* Adjust padding as needed */
+            color: white;
+            background-color: black;
+            border: none;
+            outline: none;
+            width: calc(100% - 20px);
+            padding: 5px;
             font-family: Arial, sans-serif;
             font-size: 16px;
-            resize: none; /* Prevents resizing */
+            resize: none;
         }
 
-        /* Animation for typing text */
         @keyframes typing {
             from { width: 0 }
         }
 
-        /* Typing effect style */
         .typing::after {
             content: ' ';
             animation: typing 3s steps(30, end);
@@ -58,14 +54,11 @@
         }
     </style>
     <script>
-        // JavaScript function to simulate typing effect
         document.addEventListener('DOMContentLoaded', function() {
             var typingText = "Insert text here";
             var index = 0;
-            var speed = 50; // typing speed in milliseconds
+            var speed = 50;
             var element = document.getElementById('typing-text');
-            var previousCommand = "";
-            var previousResponse = "";
 
             function typeWriter() {
                 if (index < typingText.length) {
@@ -81,15 +74,14 @@
 
             function handleKeyDown(event) {
                 if (event.key === 'Enter') {
+                    var inputBox = event.target;
                     var inputValue = inputBox.value.trim().toLowerCase();
                     var response = getResponse(inputValue);
-                    updateResponse(inputValue, response);
-                    inputBox.value = ""; // Clear input box
+                    updateResponse(inputBox, inputValue, response);
                 }
             }
 
             function getResponse(inputValue) {
-                // Define your commands and responses here
                 switch (inputValue) {
                     case "insert command here":
                         return "insert response here";
@@ -98,20 +90,14 @@
                 }
             }
 
-            function updateResponse(command, response) {
-                // Clear previous response
-                if (previousCommand !== command) {
-                    previousCommand = command;
-                    previousResponse = response;
-                } else {
-                    previousResponse = response;
-                }
-                element.innerHTML += '<br>' + previousResponse + '<br><span>~</span> <input type="text" class="typable-box" placeholder="Add your own text here" id="inputBox">';
-                inputBox = document.getElementById('inputBox');
-                inputBox.addEventListener('keydown', handleKeyDown); // Re-add event listener
+            function updateResponse(inputBox, command, response) {
+                var newContent = `<br>${response}<br><span>~</span> <input type="text" class="typable-box" placeholder="Add your own text here" id="inputBox">`;
+                element.innerHTML = element.innerHTML.replace(inputBox.outerHTML, '') + newContent;
+                var newInputBox = document.getElementById('inputBox');
+                newInputBox.addEventListener('keydown', handleKeyDown);
             }
 
-            typeWriter(); // Start typing animation
+            typeWriter();
         });
     </script>
 </head>
