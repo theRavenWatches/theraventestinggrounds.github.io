@@ -7,9 +7,8 @@
         /* Optional CSS styles for better presentation */
         .typing-text {
             font-family: Arial, sans-serif;
-            font-size: 24px;
-            color: black;
-            text-align: center;
+            font-size: 16px;
+            color: white;
             margin-top: 50px;
         }
 
@@ -47,7 +46,7 @@
                     index++;
                     setTimeout(typeWriter, speed);
                 } else {
-                    element.innerHTML += '<br><span>~</span> <input type="text" class="typable-box" placeholder="Add your own text here">'; // Add line break, tilde, and input box after animated text
+                    element.innerHTML += '<br><span>~</span> <input type="text" class="typable-box" placeholder="">'; // Add line break, tilde, and input box after animated text
                 }
             }
 
