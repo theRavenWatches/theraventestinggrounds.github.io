@@ -45,10 +45,15 @@ p {
 }
 
 .styled-button:hover {
-    background-color: gray; 
+    background-color: gray; /* Darker shade when hovered */
 }
 
 .button-container {
     text-align: center; /* Centers the button horizontally */
     margin-top: 20px; /* Adds space above the button */
+}
+
+.centered-button {
+    text-align: center; /* Centers the content */
+    margin-top: 50px; /* Adds space above the button */
 }
