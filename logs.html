@@ -71,17 +71,20 @@
                     index++;
                     setTimeout(typeWriter, speed);
                 } else {
-                    element.innerHTML += '<br><span>~</span> <input type="text" class="typable-box" placeholder="" oninput="checkCommand(this.value)">'; // Add line break, tilde, and input box after animated text
+                    element.innerHTML += '<br><span>~</span> <input type="text" class="typable-box" placeholder="Add your own text here" onkeydown="checkInput(event)">'; // Add line break, tilde, and input box after animated text
                 }
             }
 
-            function checkCommand(input) {
-                var command = "insert command here";
-                if (input.toLowerCase() === command) {
-                    element.innerHTML += '<br><div class="response typing">insert response here</div>';
-                    setTimeout(function() {
-                        element.innerHTML += '<br><span>~</span> <input type="text" class="typable-box" placeholder="" oninput="checkCommand(this.value)">';
-                    }, 3000); // Add typing box after 3 seconds
+            function checkInput(event) {
+                if (event.key === 'Enter') {
+                    var inputValue = event.target.value.toLowerCase().trim();
+                    var command = "insert command here";
+                    if (inputValue === command) {
+                        element.innerHTML += '<br><div class="response typing">insert response here</div>';
+                        setTimeout(function() {
+                            element.innerHTML += '<br><span>~</span> <input type="text" class="typable-box" placeholder="Add your own text here" onkeydown="checkInput(event)">';
+                        }, 3000); // Add typing box after 3 seconds
+                    }
                 }
             }
 
