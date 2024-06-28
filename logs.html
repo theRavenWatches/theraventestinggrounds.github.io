@@ -6,8 +6,8 @@
     <script>
         // JavaScript function to simulate typing effect
         document.addEventListener('DOMContentLoaded', function() {
-            var typingText1 = "Welcome back, ???";
-            var typingText2 = "Which logs would you like to view?";
+            var typingText1 = "Insert text here";
+            var typingText2 = "Insert more text here";
             var index = 0;
             var speed = 50; // typing speed in milliseconds
             var element = document.getElementById('typing-text');
@@ -19,6 +19,7 @@
                     setTimeout(typeWriter, speed);
                 } else {
                     element.innerHTML += '<br>'; // Add line break after first text
+                    index = 0; // Reset index for second text
                     typeWriter2(); // Start typing second text
                 }
             }
