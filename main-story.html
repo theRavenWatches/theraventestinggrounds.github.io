@@ -31,7 +31,7 @@
             display: inline-block;
             padding: 10px 20px;
             font-size: 1.2em;
-            color: black;
+            color: white;
             background-color: white;
             border: none;
             text-decoration: none;
@@ -49,6 +49,13 @@
             bottom: 20px;
             left: 20px;
         }
+
+        .centered-info {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
     </style>
 </head>
 <body>
@@ -57,13 +64,19 @@
             <a href="logs.html" class="styled-button">Open Terminal</a>
         </div>
     </main>
-    
-    <div class="button-container">
+
+    <div class="centered-info">
         <a href="information.html" class="styled-button">Important Info</a>
     </div>
     
     <div class="bottom-button-container">
         <a href="index.html" class="bottom-button">Back to Home</a>
     </div>
+
+    <!-- Looping Audio -->
+    <audio autoplay loop>
+        <source src="https://github.com/theravenwatches/theravenwatches.io/raw/main/audio/bg.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 </body>
 </html>
