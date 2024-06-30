@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Logs</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<title>Logs</title>
+<link rel="stylesheet" type="text/css" href="styles.css">
     <style>
         .typing-text {
-            font-family: Arial, sans-serif;
+            font-family: 'VT323', monospace;
             font-size: 16px;
             color: white;
             margin-top: 50px;
@@ -16,7 +19,7 @@
             max-width: 600px;
             margin: 20px auto;
             padding: 10px;
-            font-family: Arial, sans-serif;
+            font-family: 'VT323', monospace;
             font-size: 16px;
             color: white;
             background-color: black;
@@ -34,7 +37,7 @@
             outline: none;
             width: calc(100% - 20px);
             padding: 5px;
-            font-family: Arial, sans-serif;
+            font-family: 'VT323', monospace;
             font-size: 16px;
             resize: none;
         }
@@ -52,6 +55,30 @@
             margin-left: 10px;
             border-right: .15em solid orange;
         }
+
+            .fisheye-effect {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fisheye-effect::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 200%;
+            height: 200%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.5);
+            pointer-events: none;
+        }
+
+        .fisheye-effect > * {
+            transform: scale(1.2);
+            border-radius: 25%;
+        }
+    </style>
     </style>
        <meta http-equiv="Permissions-Policy" content="interest-cohort=()"/>
     <script>
@@ -146,7 +173,7 @@
         });
     </script>
 </head>
-<body>
+<body class="fisheye-effect">
     <div id="typing-text" class="typing-text"></div>
 </body>
 </html>
