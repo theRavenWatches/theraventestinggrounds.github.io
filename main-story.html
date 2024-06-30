@@ -48,6 +48,7 @@
             cursor: pointer;
             border-radius: 5px;
             transition: background-color 0.3s ease;
+            position: relative;
         }
 
         .bottom-button:hover, .styled-button:hover {
@@ -62,29 +63,48 @@
 
         .centered-info {
             position: absolute;
-            top: 15px; /* Align with Open Terminal */
+            top: 20px; /* Align with Open Terminal */
             right: 20px; /* Adjust right position as needed */
+        }
+
+        .styled-button::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            color: rgba(255, 0, 0, 0.7);
+            z-index: -1;
+            transform: translate(-2px, -2px);
+        }
+
+        .styled-button::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            color: rgba(0, 255, 255, 0.7);
+            z-index: -1;
+            transform: translate(2px, 2px);
         }
     </style>
 </head>
 <body>
     <main>
         <div class="centered-button button-container">
-            <a href="logs.html" class="styled-button">Open Terminal</a>
+            <a href="logs.html" class="styled-button" data-text="Open Terminal">Open Terminal</a>
         </div>
     </main>
 
     <div class="centered-info">
-        <a href="information.html" class="styled-button">Important Info</a>
+        <a href="information.html" class="styled-button" data-text="Important Info">Important Info</a>
     </div>
     
     <div class="bottom-button-container">
         <a href="index.html" class="bottom-button">Back to Home</a>
     </div>
-
-    <audio autoplay loop>
-        <source src="https://github.com/theravenwatches/theravenwatches.github.io/raw/main/audio/bg.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
 </body>
 </html>
