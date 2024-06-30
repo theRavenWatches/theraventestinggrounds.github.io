@@ -20,6 +20,16 @@
 
         .centered-button {
             margin-top: 20px;
+            animation: bob 2s infinite alternate; /* Adding bobbing animation */
+        }
+
+        @keyframes bob {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-10px); /* Adjust this value for the desired bobbing effect */
+            }
         }
 
         .bottom-button-container {
@@ -38,8 +48,6 @@
             cursor: pointer;
             border-radius: 5px;
             transition: background-color 0.3s ease;
-            position: relative;
-            animation: bob 2s ease-in-out infinite alternate;
         }
 
         .bottom-button:hover, .styled-button:hover {
@@ -48,32 +56,27 @@
 
         .button-container {
             position: absolute;
-            top: 20px;
+            top: 20px; /* Adjust top position as needed */
             left: 20px;
         }
 
         .centered-info {
             position: absolute;
-            top: 20px;
-            right: 20px;
-        }
-
-        @keyframes bob {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-10px); }
+            top: 20px; /* Align with Open Terminal */
+            right: 20px; /* Adjust right position as needed */
         }
     </style>
 </head>
 <body>
     <main>
-        <div class="button-container">
+        <div class="centered-button button-container">
             <a href="logs.html" class="styled-button">Open Terminal</a>
         </div>
-
-        <div class="centered-info">
-            <a href="information.html" class="styled-button">Important Info</a>
-        </div>
     </main>
+
+    <div class="centered-info">
+        <a href="information.html" class="styled-button">Important Info</a>
+    </div>
     
     <div class="bottom-button-container">
         <a href="index.html" class="bottom-button">Back to Home</a>
