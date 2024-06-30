@@ -8,19 +8,22 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            height: 100vh; /* Ensure the body takes up the full viewport height */
-            margin: 0; /* Remove default margin */
-            padding: 0; /* Remove default padding */
-        }
-
-        .bottom-button-container {
-            text-align: center;
-            margin-bottom: 20px; /* Add margin to create space between bottom and button */
+            height: 100vh;
+            margin: 0;
+            padding: 0;
         }
 
         .button-container {
             text-align: center;
-            margin-top: auto; /* Push to the center of remaining space */
+            flex-grow: 1; /* Grow to take up remaining space */
+            display: flex;
+            align-items: center; /* Center vertically */
+            justify-content: center; /* Center horizontally */
+        }
+
+        .bottom-button-container {
+            text-align: center;
+            margin-bottom: 20px;
         }
 
         .bottom-button {
