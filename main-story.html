@@ -11,14 +11,25 @@
             height: 100vh;
             margin: 0;
             padding: 0;
+            background-image: url('https://cdn.dribbble.com/users/1805960/screenshots/5822834/static-tv.gif'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
-        .button-container {
-            text-align: center;
-            flex-grow: 1; /* Grow to take up remaining space */
+        .main-content {
+            flex-grow: 1;
             display: flex;
-            align-items: center; /* Center vertically */
-            justify-content: center; /* Center horizontally */
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .centered-button {
+            margin-bottom: 20px;
         }
 
         .bottom-button-container {
@@ -43,16 +54,16 @@
     </style>
 </head>
 <body>
-    <main>
+    <div class="main-content">
         <div class="centered-button">
             <a href="logs.html" class="styled-button">Open Terminal</a>
         </div>
-    </main>
-    
-    <div class="button-container">
-        <a href="information.html" class="styled-button">Important Info</a>
+        
+        <div class="button-container">
+            <a href="information.html" class="styled-button">Important Info</a>
+        </div>
     </div>
-    
+
     <div class="bottom-button-container">
         <a href="index.html" class="bottom-button">Back to Home</a>
     </div>
