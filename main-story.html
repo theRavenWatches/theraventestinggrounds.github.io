@@ -20,6 +20,9 @@
 
         .centered-button {
             margin-top: 20px;
+            position: absolute;
+            top: 10px;
+            left: 10px; /* Adjust left position as needed */
         }
 
         .bottom-button-container {
@@ -47,14 +50,14 @@
         .button-container {
             position: absolute;
             bottom: 20px;
-            left: 20px;
+            left: 50%; /* Adjust left position for centering */
+            transform: translateX(-50%);
         }
 
         .centered-info {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            top: 10px;
+            right: 10px; /* Adjust right position as needed */
         }
     </style>
 </head>
@@ -69,11 +72,10 @@
         <a href="information.html" class="styled-button">Important Info</a>
     </div>
     
-    <div class="bottom-button-container">
-        <a href="index.html" class="bottom-button">Back to Home</a>
+    <div class="bottom-button-container button-container">
+        <a href="index.html" class="bottom-button">Return to Home</a>
     </div>
 
-    <!-- Background Music -->
     <audio autoplay loop>
         <source src="https://github.com/theravenwatches/theravenwatches.github.io/raw/main/audio/bg.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
