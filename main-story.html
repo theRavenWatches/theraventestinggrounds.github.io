@@ -19,69 +19,35 @@
         }
 
         .centered-button {
-            margin-top: 20px; /* Adjust margin from top */
+            margin-top: 20px;
         }
 
         .bottom-button-container {
-            margin-top: auto; /* Push to the bottom of the page */
+            margin-top: auto;
             text-align: center;
         }
 
-        .bottom-button {
+        .bottom-button, .styled-button {
             display: inline-block;
             padding: 10px 20px;
             font-size: 1.2em;
             color: white;
-            background-color: orange;
+            background-color: white;
             border: none;
             text-decoration: none;
             cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
 
-        .bottom-button:hover {
-            background-color: darkorange;
+        .bottom-button:hover, .styled-button:hover {
+            background-color: lightgray;
         }
 
-        .button-container {
-            position: absolute;
-            bottom: 20px; /* Adjust distance from bottom */
-            left: 20px; /* Adjust distance from left */
-        }
-
-        .styled-button {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 1.2em;
-            color: white;
-            background-color: orange;
-            border: none;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .styled-button:hover {
-            background-color: darkorange;
-        }
-        
         .button-container {
             position: absolute;
             bottom: 20px;
             left: 20px;
-        }
-
-        .styled-button {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 1.2em;
-            color: white;
-            background-color: orange;
-            border: none;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .styled-button:hover {
-            background-color: darkorange;
         }
     </style>
 </head>
