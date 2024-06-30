@@ -4,9 +4,23 @@
     <title>Story Contents</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100vh; /* Ensure the body takes up the full viewport height */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+        }
+
         .bottom-button-container {
-            margin-top: 20px;
             text-align: center;
+            margin-bottom: 20px; /* Add margin to create space between bottom and button */
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: auto; /* Push to the center of remaining space */
         }
 
         .bottom-button {
