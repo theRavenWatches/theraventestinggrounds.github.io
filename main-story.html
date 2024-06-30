@@ -23,6 +23,7 @@
             position: absolute;
             top: 10px;
             left: 10px; /* Adjust left position as needed */
+            animation: bob 3s ease-in-out infinite; /* Apply bobbing animation */
         }
 
         .bottom-button-container {
@@ -58,6 +59,19 @@
             position: absolute;
             top: 10px;
             right: 10px; /* Adjust right position as needed */
+            animation: bob 3s ease-in-out infinite; /* Apply bobbing animation */
+        }
+
+        @keyframes bob {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px); /* Adjust the bobbing height */
+            }
+            100% {
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
