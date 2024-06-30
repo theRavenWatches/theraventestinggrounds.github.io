@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Story Contents</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <style>
@@ -90,21 +91,125 @@
             z-index: -1;
             transform: translate(2px, 2px);
         }
+
+        .dropdown {
+            margin: 20px;
+        }
+
+        .dropdown-content {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .dropdown-content p {
+            margin: 0;
+        }
+
+        .dropdown-btn {
+            cursor: pointer;
+            font-size: 1.5em;
+            border: none;
+            background: none;
+            color: white;
+            text-decoration: underline;
+        }
+
+        .dropdown-btn:hover {
+            color: orange;
+        }
+
+        .info-section {
+            display: none;
+            background-color: black;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .back-btn {
+            margin-top: 50px;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: white;
+            background-color: orange;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .back-btn:hover {
+            background-color: darkorange;
+        }
     </style>
+    <script>
+        function toggleInfo() {
+            var infoSection = document.getElementById('infoSection');
+            var mainSection = document.getElementById('mainSection');
+
+            if (infoSection.style.display === "none") {
+                infoSection.style.display = "block";
+                mainSection.style.display = "none";
+            } else {
+                infoSection.style.display = "none";
+                mainSection.style.display = "block";
+            }
+        }
+
+        function toggleDropdown(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+    </script>
 </head>
 <body>
-    <main>
-        <div class="centered-button button-container">
-            <a href="logs.html" class="styled-button" data-text="Open Terminal">Open Terminal</a>
-        </div>
-    </main>
+    <div id="mainSection">
+        <main>
+            <div class="centered-button button-container">
+                <a href="logs.html" class="styled-button" data-text="Open Terminal">Open Terminal</a>
+            </div>
+        </main>
 
-    <div class="centered-info">
-        <a href="information.html" class="styled-button" data-text="Important Info">Important Info</a>
+        <div class="centered-info">
+            <a href="javascript:void(0)" class="styled-button" data-text="Important Info" onclick="toggleInfo()">Important Info</a>
+        </div>
+        
+        <div class="bottom-button-container">
+            <a href="index.html" class="bottom-button">Back to Home</a>
+        </div>
     </div>
-    
-    <div class="bottom-button-container">
-        <a href="index.html" class="bottom-button">Back to Home</a>
+
+    <div id="infoSection" class="info-section">
+        <div class="dropdown">
+            <button class="dropdown-btn" onclick="toggleDropdown('dropdown1')">Known Issues</button>
+            <div id="dropdown1" class="dropdown-content">
+                <p>Updating the website requires you to hard reset its cache. I'm trying to make a script to offload cached files so stay tuned for that.</p>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <button class="dropdown-btn" onclick="toggleDropdown('dropdown2')">Story Information</button>
+            <div id="dropdown2" class="dropdown-content">
+                <p>The Raven is a digital audio based web horror story that is mostly based on speculation by the viewer. Not a lot will make sense yet. It will in time as this site gets updated. Believe me.<br><br>Since it isn't explicitly said anywhere else currently, 'see.file' is the only command that is available right now (or is it i dont really know). refer to the google doc for the commands to open files lol.<br><br>DO NOT INSPECT HTML<br>Because this is all built on github, inspecting the HTML files would give away some secrets you're meant to find on your own<br>Please don't spoil, this story is only interesting if you let it be.</p>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <button class="dropdown-btn" onclick="toggleDropdown('dropdown3')">Creator Information</button>
+            <div id="dropdown3" class="dropdown-content">
+                <p>Hi! I'm katomate! I make small little stories to keep myself sane and this one just so happened to be the one people liked the most. I'm 16 I live in the US and I have very low patience. <3</p>
+            </div>
+        </div>
+
+        <button class="back-btn" onclick="toggleInfo()">Back</button>
     </div>
 
     <audio autoplay loop>
