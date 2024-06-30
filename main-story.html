@@ -79,6 +79,13 @@
             right: 20px; /* Adjust right position as needed */
         }
 
+        .bottom-left-button {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            animation: bob 2s infinite alternate;
+        }
+
         .styled-button::before {
             content: attr(data-text);
             position: absolute;
@@ -129,7 +136,7 @@
             color: orange;
         }
 
-        .info-section {
+        .info-section, .text-section {
             display: none;
             background-color: black;
             color: white;
@@ -160,13 +167,30 @@
     <script>
         function toggleInfo() {
             var infoSection = document.getElementById('infoSection');
+            var textSection = document.getElementById('textSection');
             var mainSection = document.getElementById('mainSection');
 
             if (infoSection.style.display === "none") {
                 infoSection.style.display = "block";
+                textSection.style.display = "none";
                 mainSection.style.display = "none";
             } else {
                 infoSection.style.display = "none";
+                mainSection.style.display = "block";
+            }
+        }
+
+        function toggleText() {
+            var infoSection = document.getElementById('infoSection');
+            var textSection = document.getElementById('textSection');
+            var mainSection = document.getElementById('mainSection');
+
+            if (textSection.style.display === "none") {
+                textSection.style.display = "block";
+                infoSection.style.display = "none";
+                mainSection.style.display = "none";
+            } else {
+                textSection.style.display = "none";
                 mainSection.style.display = "block";
             }
         }
@@ -196,6 +220,10 @@
         <div class="bottom-button-container">
             <a href="index.html" class="bottom-button">Back to Home</a>
         </div>
+
+        <div class="bottom-left-button">
+            <a href="javascript:void(0)" class="styled-button" data-text="Text Section" onclick="toggleText()">Patch Notes</a>
+        </div>
     </div>
 
     <div id="infoSection" class="info-section">
@@ -221,6 +249,14 @@
         </div>
 
         <button class="back-btn" onclick="toggleInfo()">Back</button>
+    </div>
+
+    <div id="textSection" class="text-section">
+        <h1>PATCH NOTES 0.1</h1>
+        <p>Added background music and background image to Story Contents. Looks a lot cleaner, no?<br><br>Added Patch Notes to Story Contents<br><br>Added Important Info dropdown menu's to Story Contents, effectively rendering the existence of the Information page useless, as it is now bundled with Story Contents<br><br>Added bobbing effect to the Open Terminal button<br><br>Website is now in beta testing!</p>
+        <h2>Upcoming Update 0.2</h2>
+        <p2>Background for Index page<br><br>HOPEFULLY a new Terminal update.<br><br>Cleaner looking Index page.<br><br>Background music compatibility for browsers with media autoplay disabled<br><br>Hopefully better mobile support<br><br>MAYBE a custom font.</p2>
+        <button class="back-btn" onclick="toggleText()">Back</button>
     </div>
 
     <audio autoplay loop>
