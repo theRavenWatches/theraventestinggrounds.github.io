@@ -41,16 +41,17 @@
         .credit {
             position: absolute;
             top: 20px;
-            left: 20px;
-            z-index: 1; /* Ensure the credit stays above other elements */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1; 
         }
 
         .credit-text {
             text-align: center;
             font-size: 1.5em;
-            color: #EE82EE;
+            color: hotpink; /* Bright pink color */
             margin-top: 20px;
-            z-index: 1; /* Ensure the text stays above other elements */
+            z-index: 1; 
         }
 
         .styled-button {
@@ -64,9 +65,11 @@
             cursor: pointer;
             overflow: hidden;
             transition: box-shadow 0.3s ease;
-            z-index: 1; /* Ensure button stays above other elements */
+            z-index: 1; 
             position: absolute;
-            top: 20px; /* Adjust top position as needed */
+            top: 20px; 
+            left: 50%; 
+            transform: translateX(-50%); 
         }
 
         .styled-button:hover {
