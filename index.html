@@ -34,7 +34,6 @@
             border: none;
             text-decoration: none;
             cursor: pointer;
-            text-transform: uppercase;
             overflow: hidden;
         }
 
@@ -49,34 +48,46 @@
             background-color: orange;
             color: white;
             z-index: -1;
-            clip: rect(0, 0, 0, 0);
-            animation: glitch 2s infinite;
+        }
+
+        .glitch-button:before {
+            left: 2px;
+            text-shadow: -2px 0 red;
+            clip: rect(0, 900px, 0, 0);
+            animation: glitch 2s infinite linear alternate-reverse;
         }
 
         .glitch-button:after {
-            left: 2px;
-            text-shadow: -2px 0 red;
-            animation: glitch 2s infinite reverse;
+            left: -2px;
+            text-shadow: -2px 0 blue;
+            clip: rect(0, 900px, 0, 0);
+            animation: glitch 2s infinite linear alternate-reverse;
         }
 
         @keyframes glitch {
             0% {
                 clip: rect(0, 9999px, 0, 0);
+                transform: translate(0);
             }
             20% {
                 clip: rect(10px, 9999px, 25px, 0);
+                transform: translate(-2px, -2px);
             }
             40% {
                 clip: rect(20px, 9999px, 15px, 0);
+                transform: translate(2px, 2px);
             }
             60% {
                 clip: rect(30px, 9999px, 35px, 0);
+                transform: translate(-2px, 2px);
             }
             80% {
                 clip: rect(40px, 9999px, 20px, 0);
+                transform: translate(2px, -2px);
             }
             100% {
                 clip: rect(50px, 9999px, 5px, 0);
+                transform: translate(0);
             }
         }
     </style>
