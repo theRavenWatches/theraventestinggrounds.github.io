@@ -24,7 +24,7 @@
             background-color: darkorange;
         }
 
-        .glitch-button {
+        .styled-button {
             position: relative;
             display: inline-block;
             padding: 10px 20px;
@@ -37,8 +37,8 @@
             overflow: hidden;
         }
 
-        .glitch-button:before,
-        .glitch-button:after {
+        .styled-button:before,
+        .styled-button:after {
             content: 'Continue';
             position: absolute;
             top: 0;
@@ -47,20 +47,19 @@
             height: 100%;
             background-color: orange;
             color: white;
-            z-index: -1;
         }
 
-        .glitch-button:before {
+        .styled-button:before {
             left: 2px;
             text-shadow: -2px 0 red;
-            clip: rect(0, 900px, 0, 0);
-            animation: glitch 2s infinite linear alternate-reverse;
+            clip: rect(2px, 150px, 10px, 0);
+            animation: glitch 1.5s infinite linear alternate-reverse;
         }
 
-        .glitch-button:after {
+        .styled-button:after {
             left: -2px;
             text-shadow: -2px 0 blue;
-            clip: rect(0, 900px, 0, 0);
+            clip: rect(85px, 9999px, 85px, 0);
             animation: glitch 2s infinite linear alternate-reverse;
         }
 
@@ -102,7 +101,7 @@
     </div>
 
     <div class="button-container">
-        <a href="main-story.html" class="styled-button glitch-button">Continue</a>
+        <a href="main-story.html" class="styled-button">Continue</a>
     </div>
 
     <div class="extra-button-container">
