@@ -148,7 +148,7 @@
     </div>
 
     <div class="button-container">
-        <a href="main-story.html" class="styled-button">Continue</a>
+        <a href="main-story.html" class="styled-button" onclick="playSound()">Continue</a>
     </div>
 
     <div class="extra-button-container">
@@ -159,6 +159,11 @@
     <div class="page-content">
         <!-- Any other content on the page -->
     </div>
+
+    <audio id="button-sound">
+        <source src="https://github.com/theRavenWatches/theraventestinggrounds.github.io/raw/main/audio/index_continuebuttonsound.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 
     <script>
         const continueButton = document.querySelector('.styled-button');
@@ -184,6 +189,11 @@
             document.querySelector('.page-content').classList.remove('hidden');
             document.querySelector('.page-hidden').classList.add('hidden');
         });
+
+        function playSound() {
+            var sound = document.getElementById("button-sound");
+            sound.play();
+        }
     </script>
 </body>
 </html>
