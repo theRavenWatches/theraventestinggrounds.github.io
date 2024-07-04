@@ -148,7 +148,7 @@
     </div>
 
     <div class="button-container">
-        <a href="main-story.html" class="styled-button" onclick="playSound()">Continue</a>
+        <a href="javascript:void(0)" class="styled-button" onclick="playSoundAndNavigate()">Continue</a>
     </div>
 
     <div class="extra-button-container">
@@ -190,9 +190,12 @@
             document.querySelector('.page-hidden').classList.add('hidden');
         });
 
-        function playSound() {
+        function playSoundAndNavigate() {
             var sound = document.getElementById("button-sound");
             sound.play();
+            sound.onended = function() {
+                window.location.href = "main-story.html"; // Replace with your target page
+            };
         }
     </script>
 </body>
