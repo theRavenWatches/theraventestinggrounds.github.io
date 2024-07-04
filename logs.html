@@ -64,6 +64,9 @@
             var speed = 55;
             var element = document.getElementById('typing-text');
             var inputBox;
+            var keyClickSound = new Audio('https://github.com/theRavenWatches/theraventestinggrounds.github.io/raw/main/audio/log_keyboardclick.mp3');
+            var beepSound = new Audio('https://github.com/theRavenWatches/theraventestinggrounds.github.io/raw/main/audio/log_successfulcommand.mp3');
+            
             function typeWriter() {
                 if (index < typingText.length) {
                     element.textContent += typingText.charAt(index);
@@ -77,12 +80,19 @@
                 element.innerHTML += '<br><span>~</span> <input type="text" class="typable-box" placeholder="" id="inputBox">';
                 inputBox = document.getElementById('inputBox');
                 inputBox.addEventListener('keydown', handleKeyDown);
+                document.addEventListener('keydown', function(event) {
+                keyClickSound.currentTime = 0;
+                keyClickSound.play();
+                    });
+                }
             }
             function handleKeyDown(event) {
                 if (event.key === 'Enter') {
                     var inputValue = inputBox.value.trim().toLowerCase();
                     var response = getResponse(inputValue);
                     updateResponse(inputValue, response);
+                    beepSound.currentTime = 0;
+                    beepSound.play();
                 }
             }
             function getResponse(inputValue) {
