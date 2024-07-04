@@ -54,6 +54,7 @@
             cursor: pointer;
             overflow: hidden;
             transition: box-shadow 0.3s ease;
+            z-index: 1; /* Ensure button stays above other elements */
         }
 
         .styled-button:hover {
@@ -152,7 +153,7 @@
             document.querySelector('.extra-button-container').classList.add('hidden');
             document.querySelector('.page-content').classList.add('hidden');
             document.querySelector('.page-hidden').classList.remove('hidden');
-            continueButton.style.position = "relative"; // Ensure the button stays in place
+            continueButton.style.position = "fixed"; // Ensure the button stays fixed at its position
             continueButton.querySelector(':before').style.animation = "none";
             continueButton.querySelector(':after').style.animation = "none";
         });
@@ -166,6 +167,7 @@
             document.querySelector('.page-hidden').classList.add('hidden');
             continueButton.querySelector(':before').style.animation = "glitch 0.3s infinite";
             continueButton.querySelector(':after').style.animation = "glitch 0.3s infinite";
+            continueButton.style.position = "relative"; // Return the button to its original position
         });
     </script>
 </body>
