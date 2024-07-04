@@ -8,12 +8,12 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background-image: url('https://64.media.tumblr.com/01b91bd06c8e0214189ed6bc4e915f01/e5b3180b523c2d26-cf/s1280x1920/61fa3f639f38f39161240c6fdd5f71dde3f6fa37.gif'); /* Replace with your initial background URL */
+            background-image: url('https://64.media.tumblr.com/01b91bd06c8e0214189ed6bc4e915f01/e5b3180b523c2d26-cf/s1280x1920/61fa3f639f38f39161240c6fdd5f71dde3f6fa37.gif');
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
-            height: 100vh; /* Ensure it stretches to fill the viewport height. fuck you page */
-            width: 100vw; /* Ensure it stretches to fill the viewport width. fuck you page part 2 */
+            height: 100vh;
+            width: 100vw;
         }
 
         .extra-button-container {
@@ -38,7 +38,7 @@
         .credit-text {
             text-align: center;
             font-size: 1.5em;
-            color: #EE82EE; /* pain. pain. pain. */
+            color: #EE82EE;
             margin-top: 20px;
         }
 
@@ -114,11 +114,6 @@
         .hidden {
             display: none;
         }
-
-        .credit {
-            text-align: center;
-            margin-top: 20px;
-        }
     </style>
 </head>
 <body>
@@ -157,7 +152,7 @@
             document.querySelector('.extra-button-container').classList.add('hidden');
             document.querySelector('.page-content').classList.add('hidden');
             document.querySelector('.page-hidden').classList.remove('hidden');
-            document.querySelector('.styled-button').style.visibility = "visible"; // Keep the button visible javascript PLEASE
+            continueButton.style.position = "relative"; // Ensure the button stays in place
             continueButton.querySelector(':before').style.animation = "none";
             continueButton.querySelector(':after').style.animation = "none";
         });
