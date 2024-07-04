@@ -23,6 +23,89 @@
         .extra-button:hover {
             background-color: darkorange;
         }
+
+        .glitch-button {
+            position: relative;
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: white;
+            background-color: orange;
+            border: none;
+            text-decoration: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            overflow: hidden;
+        }
+
+        .glitch-button:before,
+        .glitch-button:after {
+            content: 'Continue';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: orange;
+            color: white;
+            z-index: -1;
+            opacity: 0.8;
+            clip: rect(0, 0, 0, 0);
+            animation: glitch 2s infinite;
+        }
+
+        .glitch-button:after {
+            left: 2px;
+            text-shadow: -2px 0 red;
+            animation: glitch 2s infinite reverse;
+        }
+
+        @keyframes glitch {
+            0% {
+                clip: rect(24px, 9999px, 44px, 0);
+                transform: skew(0.3deg);
+            }
+            10% {
+                clip: rect(65px, 9999px, 26px, 0);
+                transform: skew(0.6deg);
+            }
+            20% {
+                clip: rect(3px, 9999px, 33px, 0);
+                transform: skew(0.3deg);
+            }
+            30% {
+                clip: rect(12px, 9999px, 23px, 0);
+                transform: skew(0.6deg);
+            }
+            40% {
+                clip: rect(46px, 9999px, 18px, 0);
+                transform: skew(0.3deg);
+            }
+            50% {
+                clip: rect(40px, 9999px, 15px, 0);
+                transform: skew(0.6deg);
+            }
+            60% {
+                clip: rect(19px, 9999px, 28px, 0);
+                transform: skew(0.3deg);
+            }
+            70% {
+                clip: rect(33px, 9999px, 12px, 0);
+                transform: skew(0.6deg);
+            }
+            80% {
+                clip: rect(7px, 9999px, 25px, 0);
+                transform: skew(0.3deg);
+            }
+            90% {
+                clip: rect(23px, 9999px, 35px, 0);
+                transform: skew(0.6deg);
+            }
+            100% {
+                clip: rect(22px, 9999px, 30px, 0);
+                transform: skew(0.3deg);
+            }
+        }
     </style>
 </head>
 <body>
@@ -35,7 +118,7 @@
     </div>
 
     <div class="button-container">
-        <a href="main-story.html" class="styled-button">Continue</a>
+        <a href="main-story.html" class="styled-button glitch-button">Continue</a>
     </div>
 
     <div class="extra-button-container">
