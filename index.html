@@ -13,7 +13,10 @@
             background-repeat: no-repeat;
             background-position: center;
             height: 100vh;
-            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
 
         .extra-button-container {
@@ -153,9 +156,6 @@
             document.querySelector('.extra-button-container').classList.add('hidden');
             document.querySelector('.page-content').classList.add('hidden');
             document.querySelector('.page-hidden').classList.remove('hidden');
-            continueButton.style.position = "fixed"; // Ensure the button stays fixed at its position
-            continueButton.querySelector(':before').style.animation = "none";
-            continueButton.querySelector(':after').style.animation = "none";
         });
 
         continueButton.addEventListener('mouseout', function() {
@@ -165,9 +165,6 @@
             document.querySelector('.extra-button-container').classList.remove('hidden');
             document.querySelector('.page-content').classList.remove('hidden');
             document.querySelector('.page-hidden').classList.add('hidden');
-            continueButton.querySelector(':before').style.animation = "glitch 0.3s infinite";
-            continueButton.querySelector(':after').style.animation = "glitch 0.3s infinite";
-            continueButton.style.position = "relative"; // Return the button to its original position
         });
     </script>
 </body>
