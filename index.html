@@ -12,6 +12,8 @@
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
+            height: 100vh; /* Ensure it stretches to fill the viewport height. fuck you page */
+            width: 100vw; /* Ensure it stretches to fill the viewport width. fuck you page part 2 */
         }
 
         .extra-button-container {
@@ -36,7 +38,7 @@
         .credit-text {
             text-align: center;
             font-size: 1.5em;
-            color: #EE82EE; /* Brighter purple */
+            color: #EE82EE; /* pain. pain. pain. */
             margin-top: 20px;
         }
 
@@ -155,6 +157,7 @@
             document.querySelector('.extra-button-container').classList.add('hidden');
             document.querySelector('.page-content').classList.add('hidden');
             document.querySelector('.page-hidden').classList.remove('hidden');
+            document.querySelector('.styled-button').style.visibility = "visible"; // Keep the button visible javascript PLEASE
             continueButton.querySelector(':before').style.animation = "none";
             continueButton.querySelector(':after').style.animation = "none";
         });
