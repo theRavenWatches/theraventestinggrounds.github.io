@@ -8,8 +8,9 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background-image: url('https://64.media.tumblr.com/01b91bd06c8e0214189ed6bc4e915f01/e5b3180b523c2d26-cf/s1280x1920/61fa3f639f38f39161240c6fdd5f71dde3f6fa37.gif'); /* Replace with your initial background URL */
+            background-image: url('https://64.media.tumblr.com/01b91bd06c8e0214189ed6bc4e915f01/e5b3180b523c2d26-cf/s1280x1920/61fa3f639f38f39161240c6fdd5f71dde3f6fa37.gif''); /* Replace with your initial background URL */
             background-size: cover;
+            background-repeat: no-repeat;
             background-position: center;
         }
 
@@ -35,7 +36,7 @@
         .credit-text {
             text-align: center;
             font-size: 1.5em;
-            color: purple;
+            color: #9932CC;
             margin-top: 20px;
         }
 
@@ -44,7 +45,7 @@
             display: inline-block;
             padding: 10px 20px;
             font-size: 1.2em;
-            color: white;
+            color: black;
             background-color: white;
             border: none;
             text-decoration: none;
@@ -66,7 +67,7 @@
             width: 100%;
             height: 100%;
             background-color: white;
-            color: white;
+            color: black;
             clip: rect(0, 0, 0, 0);
             animation: glitch 0.3s infinite;
         }
@@ -108,29 +109,7 @@
             }
         }
 
-        .styled-button:hover:before,
-        .styled-button:hover:after {
-            animation: none;
-        }
-
-        .styled-button:hover .page-hidden {
-            display: block;
-        }
-
-        .page-hidden {
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('https://s2-ug.ap4r.com/image-aigc-article/seoPic/origin/6f5f667478908c1b11e7b5a3d03a11a396749fa5.gif'); 
-            background-size: cover;
-            background-position: center;
-            z-index: 10;
-        }
-
-        .button-container:hover ~ .page-content {
+        .hidden {
             display: none;
         }
     </style>
@@ -145,16 +124,40 @@
     </div>
 
     <div class="button-container">
-        <a href="main-story.html" class="styled-button">Continue</a>
+        <a href="main-story.html" class="styled-button">CONTINUE</a>
     </div>
 
     <div class="extra-button-container">
         <a href="https://discord.gg/zRQTgrPjzz" class="extra-button">Official Discord Server</a>
     </div>
 
-    <div class="page-hidden"></div>
+    <div class="page-hidden hidden"></div>
     <div class="page-content">
         <!-- Any other content on the page -->
     </div>
+
+    <script>
+        document.querySelector('.styled-button').addEventListener('mouseover', function() {
+            document.body.style.backgroundImage = "url('https://s2-ug.ap4r.com/image-aigc-article/seoPic/origin/6f5f667478908c1b11e7b5a3d03a11a396749fa5.gif')"; // Replace with your hidden background URL
+            document.querySelector('.page-content').classList.add('hidden');
+            document.querySelector('.page-hidden').classList.remove('hidden');
+        });
+
+        document.querySelector('.styled-button').addEventListener('mouseout', function() {
+            document.body.style.backgroundImage = "url('https://64.media.tumblr.com/01b91bd06c8e0214189ed6bc4e915f01/e5b3180b523c2d26-cf/s1280x1920/61fa3f639f38f39161240c6fdd5f71dde3f6fa37.gif')"; // Replace with your initial background URL
+            document.querySelector('.page-content').classList.remove('hidden');
+            document.querySelector('.page-hidden').classList.add('hidden');
+        });
+
+        document.querySelector('.styled-button').addEventListener('mouseover', function() {
+            document.querySelector('.styled-button:before').style.animation = "none";
+            document.querySelector('.styled-button:after').style.animation = "none";
+        });
+
+        document.querySelector('.styled-button').addEventListener('mouseout', function() {
+            document.querySelector('.styled-button:before').style.animation = "glitch 0.3s infinite";
+            document.querySelector('.styled-button:after').style.animation = "glitch 0.3s infinite";
+        });
+    </script>
 </body>
 </html>
