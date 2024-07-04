@@ -165,6 +165,8 @@
         }
     </style>
     <script>
+        var bgAudio = new Audio('https://github.com/theravenwatches/theravenwatches.github.io/raw/main/audio/bg.mp3');
+
         function toggleInfo() {
             var infoSection = document.getElementById('infoSection');
             var textSection = document.getElementById('textSection');
@@ -204,13 +206,35 @@
                 content.style.display = "none";
             }
         }
+
+        function playAndNavigate() {
+            fadeOutElements();
+            setTimeout(function() {
+                var audio = new Audio('https://github.com/theravenwatches/theravenwatches.github.io/raw/main/audio/storycontents_bootupsound.mp3');
+                audio.play();
+                audio.onended = function() {
+                    window.location.href = 'logs.html';
+                };
+            }, 3000); // Wait for fade-out effect (3 seconds) before playing audio
+        }
+
+        function fadeOutElements() {
+            var elementsToFade = document.querySelectorAll('.centered-button, .centered-info, .bottom-button-container, .bottom-left-button');
+            elementsToFade.forEach(function(element) {
+                element.style.transition = "opacity 3s ease";
+                element.style.opacity = 0;
+            });
+
+            // Pause background audio
+            bgAudio.pause();
+        }
     </script>
 </head>
 <body>
     <div id="mainSection">
         <main>
             <div class="centered-button button-container">
-                <a href="logs.html" class="styled-button" data-text="Open Terminal">Open Terminal</a>
+                <a href="#" class="styled-button" data-text="Open Terminal" onclick="playAndNavigate()">Open Terminal</a>
             </div>
         </main>
 
@@ -253,10 +277,10 @@
     </div>
 
     <div id="textSection" class="text-section">
-        <h1>PATCH NOTES 0.1</h1>
-        <p>Added background music and background image to Story Contents. Looks a lot cleaner, no?<br><br>Added Patch Notes to Story Contents<br><br>Added Important Info dropdown menu's to Story Contents, effectively rendering the existence of the Information page useless, as it is now bundled with Story Contents<br><br>Added bobbing effect to the Open Terminal button<br><br>Website is now in beta testing!</p>
-        <h2>Upcoming Update 0.2</h2>
-        <p2>Background for Index page<br><br>HOPEFULLY a new Terminal update.<br><br>Cleaner looking Index page.<br><br>Background music compatibility for browsers with media autoplay disabled<br><br>Hopefully better mobile support<br><br>MAYBE a custom font.</p2>
+        <h1>PATCH NOTES 0.2</h1>
+        <p>Updated Main Page to look a lot nicer (now with even more spook!)<br><br>Added keyboard clicking and confirm beeping sound to Terminal</p>
+        <h2>Upcoming Update 0.3</h2>
+        <p2>For sure new terminal update<br><br>Cleaning up some internal code (if I'm not lazy)<br><br>Finally do a 1.0 update as I'm basically done with sprucing up the actual site<br><br>Addition of a 'help' command for the sake of documenting all commands (there's already a lot of them)<br><br></p2>
         <button class="back-btn" onclick="toggleText()">Back</button>
     </div>
 
