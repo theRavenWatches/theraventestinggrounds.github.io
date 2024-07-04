@@ -8,7 +8,7 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background-image: url('https://64.media.tumblr.com/01b91bd06c8e0214189ed6bc4e915f01/e5b3180b523c2d26-cf/s1280x1920/61fa3f639f38f39161240c6fdd5f71dde3f6fa37.gif''); /* Replace with your initial background URL */
+            background-image: url('https://64.media.tumblr.com/01b91bd06c8e0214189ed6bc4e915f01/e5b3180b523c2d26-cf/s1280x1920/61fa3f639f38f39161240c6fdd5f71dde3f6fa37.gif'); /* Replace with your initial background URL */
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
@@ -36,7 +36,7 @@
         .credit-text {
             text-align: center;
             font-size: 1.5em;
-            color: #9932CC;
+            color: #EE82EE; /* Brighter purple */
             margin-top: 20px;
         }
 
@@ -112,6 +112,11 @@
         .hidden {
             display: none;
         }
+
+        .credit {
+            text-align: center;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -124,7 +129,7 @@
     </div>
 
     <div class="button-container">
-        <a href="main-story.html" class="styled-button">CONTINUE</a>
+        <a href="main-story.html" class="styled-button">Continue</a>
     </div>
 
     <div class="extra-button-container">
@@ -137,26 +142,32 @@
     </div>
 
     <script>
-        document.querySelector('.styled-button').addEventListener('mouseover', function() {
-            document.body.style.backgroundImage = "url('https://s2-ug.ap4r.com/image-aigc-article/seoPic/origin/6f5f667478908c1b11e7b5a3d03a11a396749fa5.gif')"; // Replace with your hidden background URL
+        const continueButton = document.querySelector('.styled-button');
+        const initialBackground = 'url("https://64.media.tumblr.com/01b91bd06c8e0214189ed6bc4e915f01/e5b3180b523c2d26-cf/s1280x1920/61fa3f639f38f39161240c6fdd5f71dde3f6fa37.gif")';
+        const hoverBackground = 'url("https://s2-ug.ap4r.com/image-aigc-article/seoPic/origin/6f5f667478908c1b11e7b5a3d03a11a396749fa5.gif")';
+
+        document.body.style.backgroundImage = initialBackground;
+
+        continueButton.addEventListener('mouseover', function() {
+            document.body.style.backgroundImage = hoverBackground;
+            document.querySelector('.credit').classList.add('hidden');
+            document.querySelector('.credit-text').classList.add('hidden');
+            document.querySelector('.extra-button-container').classList.add('hidden');
             document.querySelector('.page-content').classList.add('hidden');
             document.querySelector('.page-hidden').classList.remove('hidden');
+            continueButton.querySelector(':before').style.animation = "none";
+            continueButton.querySelector(':after').style.animation = "none";
         });
 
-        document.querySelector('.styled-button').addEventListener('mouseout', function() {
-            document.body.style.backgroundImage = "url('https://64.media.tumblr.com/01b91bd06c8e0214189ed6bc4e915f01/e5b3180b523c2d26-cf/s1280x1920/61fa3f639f38f39161240c6fdd5f71dde3f6fa37.gif')"; // Replace with your initial background URL
+        continueButton.addEventListener('mouseout', function() {
+            document.body.style.backgroundImage = initialBackground;
+            document.querySelector('.credit').classList.remove('hidden');
+            document.querySelector('.credit-text').classList.remove('hidden');
+            document.querySelector('.extra-button-container').classList.remove('hidden');
             document.querySelector('.page-content').classList.remove('hidden');
             document.querySelector('.page-hidden').classList.add('hidden');
-        });
-
-        document.querySelector('.styled-button').addEventListener('mouseover', function() {
-            document.querySelector('.styled-button:before').style.animation = "none";
-            document.querySelector('.styled-button:after').style.animation = "none";
-        });
-
-        document.querySelector('.styled-button').addEventListener('mouseout', function() {
-            document.querySelector('.styled-button:before').style.animation = "glitch 0.3s infinite";
-            document.querySelector('.styled-button:after').style.animation = "glitch 0.3s infinite";
+            continueButton.querySelector(':before').style.animation = "glitch 0.3s infinite";
+            continueButton.querySelector(':after').style.animation = "glitch 0.3s infinite";
         });
     </script>
 </body>
